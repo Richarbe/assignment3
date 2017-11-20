@@ -15,10 +15,10 @@ EXPERIMENT_TYPE = 'naive_bayes';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Directory holding the experiment 
-RUN_DIR = [ '/Users/student/Desktop/assignment3/experiments/bag_of_words' ];
+RUN_DIR = [ '/Users/student/Desktop/ObjectDetectionAssignment3/experiments/bag_of_words' ];
 
 %%% Directory holding all the source images
-IMAGE_DIR = [ '/Users/student/Desktop/assignment3/images' ];
+IMAGE_DIR = [ '/Users/student/Desktop/ObjectDetectionAssignment3/images' ];
 
 %% Codebook directory - holds all VQ codebooks 
 CODEBOOK_DIR = [ RUN_DIR, '/codebooks' ];   

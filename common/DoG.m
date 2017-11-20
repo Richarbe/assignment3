@@ -22,33 +22,39 @@ function DoG(image_file_names,output_file_names)
 %%% Get total number of images
 nImages = length(image_file_names);
 
+%image_file_names
+
 %%% Loop over all images
 for i = 1:nImages
-
+%image_file_names(1, i)
 
   % read in ith image
-  file_name = image_file_names{1, i};
-  image = imread(file_name);
-
+  imName = image_file_names{1, i};
+im = imread(imName);
 
      
   % Convert to single, grayscale image
-  image = rgb2gray(image);
-
-
+  if(size(im, 3) > 0)
+    imGray = rgb2gray(im);  
+  elseif(islogical(im))
+    imGray = int(im)*255;
+  else
+    imGray = im;  
+  end
+    
   
   % Find Interest points using vl_sift. Store features in f and descriptors in d.
-  [f, d] = vl_sift(single(image));
+  [f,d] = vl_sift(single(imGray));
 
   % Total number of features from image
   nFeats = size(f,2);
   
   
   % From f and d extract x, y, scale, angle and descriptor.
-    x = f(1,:);
-    y = f(2,:);
-    scale = f(3,:);
-    angle = f(4,:);
+    x = f(1, :);
+    y = f (2, :);
+    scale = f(3, :);
+    angle = f(4, :);
     descriptor = d;
     score = ones(1, nFeats);
 
